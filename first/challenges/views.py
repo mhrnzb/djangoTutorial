@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse ,  HttpResponseNotFound , HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -18,7 +19,8 @@ def dynamic_days_by_number(request , day ):
     if day > len(days_names):
         return HttpResponseNotFound('days does not exist')
     redirect_day = days_names[day - 1]
-    return HttpResponseRedirect(f'/days/{redirect_day}')
+    redirect_url = reverse('days-of-week' , args=[redirect_day])
+    return HttpResponseRedirect(redirect_url)
     #return HttpResponse(day)
 
 
