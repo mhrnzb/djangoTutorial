@@ -15,7 +15,9 @@ days = {
 
 def dynamic_days_by_number(request , day ):
     days_names = list(days.keys())
-    redirect_day = days_names[day -1 ]
+    if day > len(days_names):
+        return HttpResponseNotFound('days does not exist')
+    redirect_day = days_names[day - 1]
     return HttpResponseRedirect(f'/days/{redirect_day}')
     #return HttpResponse(day)
 
