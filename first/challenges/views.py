@@ -25,13 +25,9 @@ def days_list(request):
         list_items += f'<li> <a href="{url_path}" > {day} </a> </li> \n'
 
 
-    content = """ 
-    <ul>
+    content = f'<ul>\n {list_items}\n </ul>'
 
-    </ul
-            """
     return HttpResponse(content)
-
 
 
 
