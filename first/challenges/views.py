@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse ,  HttpResponseNotFound , HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string 
 
 # Create your views here.
 
@@ -45,6 +46,7 @@ def dynamic_days(reqeust, day):
     day_data = days.get(day)
     if day_data is not None:
         response_data = f' <h1 style="color: red" >day is : {day} and data is : {day_data}</h1> '
+        response_data = render_to_string('challenges/challenge.html',)
         return HttpResponse(response_data)
     
     return HttpResponseNotFound('day does not exists')
