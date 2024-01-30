@@ -18,7 +18,11 @@ days = {
 def dynamic_days(request, day):
     day_data = days.get(day)
     if day_data is not None:
-        return render( request , 'challenges/challenge.html')
+        context = {
+            "data": day_data
+
+        }
+        return render( request , 'challenges/challenge.html' , context )
         #response_data = f' <h1 style="color: red" >day is : {day} and data is : {day_data}</h1> '
         #response_data = render_to_string('challenges/challenge.html')
         #return HttpResponse(response_data)
