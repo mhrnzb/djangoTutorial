@@ -18,10 +18,12 @@ days = {
 def dynamic_days(request, day):
     day_data = days.get(day)
     #DTL django template language
+    #Django Template Filters
+    #https://docs.djangoproject.com/en/5.0/ref/templates/builtins/
     if day_data is not None:
         context = {
             "data": day_data,
-            "day": day
+            "day": f'selected day is {day}'
 
         }
         return render( request , 'challenges/challenge.html' , context )
