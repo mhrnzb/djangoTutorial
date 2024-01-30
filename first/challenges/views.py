@@ -15,6 +15,22 @@ days = {
     'friday': 'this is friday in disctionary',
 }
 
+def dynamic_days(request, day):
+    day_data = days.get(day)
+    if day_data is not None:
+        return render( request , 'challenges/challenge.html')
+        #response_data = f' <h1 style="color: red" >day is : {day} and data is : {day_data}</h1> '
+        #response_data = render_to_string('challenges/challenge.html')
+        #return HttpResponse(response_data)
+    
+    return HttpResponseNotFound('day does not exists')
+
+
+
+
+
+
+
 def days_list(request):
 
     days_list = list(days.keys())
@@ -41,13 +57,3 @@ def dynamic_days_by_number(request , day ):
     return HttpResponseRedirect(redirect_url)
     #return HttpResponse(day)
 
-
-def dynamic_days(request, day):
-    day_data = days.get(day)
-    if day_data is not None:
-        return render( request , 'challenges/challenge.html')
-        #response_data = f' <h1 style="color: red" >day is : {day} and data is : {day_data}</h1> '
-        #response_data = render_to_string('challenges/challenge.html')
-        #return HttpResponse(response_data)
-    
-    return HttpResponseNotFound('day does not exists')
