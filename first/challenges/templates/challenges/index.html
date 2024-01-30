@@ -8,11 +8,11 @@
 <body>
     <ul>
 
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+    {% for day in days %}
+    <li>
+        <a href=""> {{day | title}}</a>
+    </li>
+    {% endfor %}
 
 
     </ul>
