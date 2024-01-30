@@ -43,17 +43,10 @@ def dynamic_days(request, day):
 def days_list(request):
 
     days_list = list(days.keys())
-    list_items = ""
-    
-
-    for day in days_list:
-        url_path = reverse('days-of-week' , args=[day])
-        list_items += f'<li> <a href="{url_path}" > {day} </a> </li> \n'
-
-
-    content = f'<ul>\n {list_items}\n </ul>'
-
-    return HttpResponse(content)
+    context ={
+        'days':days_list
+    }
+    return render(request, 'challenges/index.html', context)
 
 
 
