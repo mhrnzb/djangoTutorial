@@ -20,6 +20,7 @@ def dynamic_days(request, day):
     #DTL django template language
     #Django Template Filters
     #https://docs.djangoproject.com/en/5.0/ref/templates/builtins/
+    #https://docs.djangoproject.com/en/5.0/ref/templates/language/
     if day_data is not None:
         context = {
             "data": day_data,
