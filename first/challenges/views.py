@@ -17,6 +17,11 @@ days = {
 
 def dynamic_days(request, day):
     day_data = days.get(day)
+    if day_data is None:
+        response_date = render_to_string('404.html')
+        return HttpResponseNotFound(response_date)
+
+
     #DTL django template language
     #Django Template Filters
     #https://docs.djangoproject.com/en/5.0/ref/templates/builtins/
