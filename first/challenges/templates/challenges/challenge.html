@@ -8,9 +8,12 @@
 <body>
     
     <h1>{{day|title}} </h1>
-    <h2>
-        
-        {{data}}
-    </h2>
+    {% if data is not None %}
+    <h2>{{data}}</h2>
+    {% else %}
+    <p> there is no data !</p>
+    {% endif %}
+    
+    
 </body>
 </html>

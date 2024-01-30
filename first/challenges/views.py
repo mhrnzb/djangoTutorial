@@ -12,7 +12,7 @@ days = {
     'tuesday': 'this is tuesday in disctionary',
     'wednesday': 'this is wednesday in disctionary',
     'thursday': 'this is thursday in disctionary',
-    'friday': 'this is friday in disctionary',
+    'friday': None,
 }
 
 def dynamic_days(request, day):
@@ -21,18 +21,21 @@ def dynamic_days(request, day):
     #Django Template Filters
     #https://docs.djangoproject.com/en/5.0/ref/templates/builtins/
     #https://docs.djangoproject.com/en/5.0/ref/templates/language/
-    if day_data is not None:
-        context = {
+
+
+    #if day_data is not None:
+
+    context = {
             "data": day_data,
             "day": f'selected day is {day}'
 
         }
-        return render( request , 'challenges/challenge.html' , context )
+    return render( request , 'challenges/challenge.html' , context )
         #response_data = f' <h1 style="color: red" >day is : {day} and data is : {day_data}</h1> '
         #response_data = render_to_string('challenges/challenge.html')
         #return HttpResponse(response_data)
     
-    return HttpResponseNotFound('day does not exists')
+    #return HttpResponseNotFound('day does not exists')
 
 
 
