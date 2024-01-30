@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block page_title %} روزهای هفته{% endblock page_title %}</title>
+    {% block header_references %} {% endblock %}
 </head>
 <body>
 <div style="border: 1px solid red ;">
@@ -16,6 +17,6 @@
 </div>
 
 
-    
+{% block footer_references %} {% endblock %} 
 </body>
 </html>

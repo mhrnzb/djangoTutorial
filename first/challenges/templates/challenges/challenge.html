@@ -3,7 +3,7 @@
 {% block page_title %} Days info {% endblock  %}
 
 {% block content %}
-{% include "challenges/includes/header.html" %}
+{% include "challenges/includes/header.html" with active_page="days detail" %}
 <h1>{{day|title}} </h1>
 {% if data is not None %}
 <h2>{{data}}</h2>
